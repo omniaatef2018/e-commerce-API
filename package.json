@@ -2,10 +2,11 @@
   "name": "preparing-nodejs-course",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node  index.js"
+    "start:dev": "nodemon server.js",
+    "start": "SET NODE_ENV=production & node server.js"
   },
   "repository": {
     "type": "git",
@@ -30,7 +31,7 @@
     "express-validator": "^6.14.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
-    "mongoose": "4.13.21",
+    "mongoose": "^6.0.13",
     "mongoose-auto-increment": "^5.0.1",
     "morgan": "^1.10.0",
     "multer": "^1.4.4",
