@@ -29,7 +29,6 @@ const dbConnection = require('./config/database');
 
 // DB Connection
 dbConnection();
-
 // Builtin Middleware
 const app = express();
 
