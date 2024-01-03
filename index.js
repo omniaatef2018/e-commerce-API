@@ -85,15 +85,15 @@ app.all('*', (req, res, next) => {
 app.use(globalError);
 
 const PORT = process.env.PORT || 8000;
-const server = app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`.green);
+const index = app.listen(PORT, () => {
+  console.log(`index running on port ${PORT}`.green);
 });
 
 // we are listening to this unhandled rejection event, which then allow us to handle all
 // errors that occur in asynchronous code which were not previously handled
 process.on('unhandledRejection', (err) => {
   console.log(err.name, err.message);
-  server.close(() => {
+  index.close(() => {
     console.log('unhandledRejection!! shutting down...');
     process.exit(1);
   });
