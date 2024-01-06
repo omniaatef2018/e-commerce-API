@@ -12,11 +12,5 @@
         "src": "/(.*)",
         "dest":"/"
       }
-    ],
-    "rewriters": [
-      {
-        "source": "/(.*)",
-        "destination": "/"
-      }
     ]
   }
