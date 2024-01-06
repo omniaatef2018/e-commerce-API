@@ -29,6 +29,7 @@ const dbConnection = require('./config/database');
 
 // DB Connection
 dbConnection();
+
 // Builtin Middleware
 const app = express();
 
@@ -85,15 +86,15 @@ app.all('*', (req, res, next) => {
 app.use(globalError);
 
 const PORT = process.env.PORT || 8000;
-const index = app.listen(PORT, () => {
-  console.log(`index running on port ${PORT}`.green);
+const server = app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`.green);
 });
 
 // we are listening to this unhandled rejection event, which then allow us to handle all
 // errors that occur in asynchronous code which were not previously handled
 process.on('unhandledRejection', (err) => {
   console.log(err.name, err.message);
-  index.close(() => {
+  server.close(() => {
     console.log('unhandledRejection!! shutting down...');
     process.exit(1);
   });
