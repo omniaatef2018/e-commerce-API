@@ -1,7 +1,10 @@
 const path = require('path');
 const express = require('express');
 const dotenv = require('dotenv');
+const mongoose = require('mongoose');
 
+// Add this line to set the strictQuery option
+mongoose.set('strictQuery', false); //
 dotenv.config({ path: 'config.env' });
 const morgan = require('morgan');
 require('colors');
