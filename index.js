@@ -17,7 +17,13 @@ const globalError = require('./middlewares/errorMiddleware');
 const mountRoutes = require('./routes');
 const { webhookCheckout } = require('./controllers/orderService');
 
-const dbConnection = require('./config/database');
+// const dbConnection = require('./config/database');
+mongoose.connect('mongodb+srv://omnia:135790@cluster1.tqahmie.mongodb.net/test?retryWrites=true&w=majority', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('Error connecting to MongoDB', err));
 
 // const categoryRouter = require('./routes/categoryRoute');
 // const subCategoryRouter = require('./routes/subCategoryRoute');
@@ -31,7 +37,7 @@ const dbConnection = require('./config/database');
 // const couponRouter = require('./routes/couponRoute');
 
 // DB Connection
-dbConnection();
+// dbConnection();
 
 // Builtin Middleware
 const app = express();
